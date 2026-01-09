@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Page</title>
+</head>
+<body>
+    <button class="back-btn" onclick="history.back()">Go Back</button>
+
+    <h3>Welcome {{username}}!</h3>
+
+   <div class="restaurant-container">
+    {% for r in restaurantList %}
+    <div class="restaurant-card">
+        <img src="{{ r.picture }}" width="220" height="150" style="object-fit:cover;">
+        <h3>{{ r.name }}</h3>
+        <p><b>Cuisine:</b> {{ r.cuisine }}</p>
+        <p><b>Rating:</b> ⭐ {{ r.rating }}</p>
+
+        <a class="card-btn" href="{% url 'view_menu' r.id username %}">
+            View Menu
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

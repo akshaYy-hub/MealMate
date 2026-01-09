@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Sign UP</title>
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <button class="back-btn" onclick="history.back()">Go Back</button>
+    <div class="auth-page">
+        <div class="auth-card">
+            <h2>Sign Up</h2>
+
+            <form action="{% url 'signup' %}" method="post">
+                {% csrf_token %}
+
+                <label>Username</label>
+                <input type="text" name="username" required>
+
+                <label>Password</label>
+                <input type="password" name="password" required>
+
+                <label>Email</label>
+                <input type="email" name="email" required>
+
+                <label>Mobile</label>
+                <input type="text" name="mobile" required>
+
+                <label>Address</label>
+                <textarea name="address" required></textarea>
+
+                <button type="submit" class="auth-btn">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

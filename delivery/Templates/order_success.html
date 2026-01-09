@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Successful</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body class="dark-bg">
+
+<div class="page-center">
+    <div class="card success-card">
+
+        <h3>🎉 Order Successful</h3>
+        <p class="muted">Thank you, {{ username }}</p>
+
+        <h3>Delivery Address</h3>
+        <p>{{ customer.address }}</p>
+
+        <h3>Order Summary</h3>
+
+        {% if cart_items %}
+            {% for ci in cart_items %}
+                <div class="checkout-item">
+                    <span>{{ ci.item.name }} × {{ ci.quantity }}</span>
+                    <span>₹ {{ ci.subtotal }}</span>
+                </div>
+            {% endfor %}
+
+            <div class="checkout-total">
+                Total: ₹ {{ total_price }}
+            </div>
+        {% else %}
+            <p>No items found.</p>
+        {% endif %}
+
+       <a href="{% url 'open_show_restaurant' %}" class="card-btn">
+    Back to Restaurants
+</a>
+
+
+    </div>
+</div>
+
+</body>
+</html>

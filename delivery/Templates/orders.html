@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Successful</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+<div class="page-center">
+    <div class="card">
+
+        <h2>Order Successful 🎉</h2>
+        <p class="muted">Thank you, {{ username }}</p>
+
+        <h3>Delivery Address</h3>
+        <p>{{ customer.address }}</p>
+
+        <h3>Order Summary</h3>
+
+        {% if cart_items %}
+            {% for ci in cart_items %}
+                <p>
+                    {{ ci.item.name }} × {{ ci.quantity }}
+                    — ₹ {{ ci.subtotal }}
+                </p>
+            {% endfor %}
+
+            <h3>Total: ₹ {{ total_price }}</h3>
+        {% else %}
+            <p>No items found.</p>
+        {% endif %}
+
+        <a href="/" class="card-btn">
+    Back to Home
+</a>
+
+
+    </div>
+</div>
+
+</body>
+</html>

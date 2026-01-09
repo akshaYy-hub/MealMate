@@ -1,0 +1,734 @@
+
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --glass-text: rgba(255, 255, 255, 0.92);
+}
+
+
+/* ===== Global Dark Theme ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #0f0f0f;   /* matte black */
+    color: #eaeaea;
+    padding: 0;
+}
+
+
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================= PAGE ================= */
+
+
+/* ================= CARD ================= */
+.card {
+    width: 360px;
+    padding: 30px;
+    border: 2px solid #000000;
+     background-color: #1a1a1a;
+    color: #f1f1f1;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* ================= HEADINGS ================= */
+h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #ffffff;
+    font-size: 1.6rem;
+}
+
+/* ================= FORMS ================= */
+form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #000000;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px;
+    border: 1.5px solid #000000;
+    outline: none;
+}
+
+form textarea {
+    resize: none;
+    height: 70px;
+}
+
+/* ================= BUTTONS & LINKS ================= */
+button,
+a {
+   
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #c40000;
+    color: #ffffff;
+    border: 2px solid #c40000;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ================= HOVER ================= */
+button:hover,
+a:hover {
+    background-color: #ffffff;
+    color: #c40000;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 480px) {
+    .card {
+        width: 90%;
+    }
+}
+/* ================= RESTAURANT IMAGES ================= */
+.restaurant-img {
+    width: 220px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+       max-width: 100%;
+}
+.item-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+/* ================= RESTAURANT CARDS ================= */
+.restaurant-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.restaurant-card {
+    width: 260px;
+    background: #1a1a1a;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+    text-align: center;
+     color: #fff;
+}
+
+.restaurant-card h3 {
+    margin: 10px 0;
+}
+
+.card-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #c40000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.card-btn:hover {
+    background: #a30000;
+}
+/* ===== ITEMS PAGE ===== */
+.item-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.item-card {
+    width: 300px;
+    padding: 15px;
+    border-radius: 12px;
+    background: #1a1a1a;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    text-align: center;
+    color: #ffffff;
+}
+
+
+.item-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.item-card h4 {
+    margin: 10px 0;
+}
+
+.card-btn {
+    display: block;
+    margin-top: 12px;
+    padding: 10px;
+    background: #c40000;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+.cart-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+/* ===== CART PAGE ===== */
+
+.cart-title {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cart-total {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.cart-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.cart-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #1a1a1a;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+     justify-content: space-between;
+     width: 70%;          
+    max-width: 900px; 
+     color: #fff;
+}
+
+
+/* ===== CART IMAGE FIX ===== */
+.cart-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+.cart-info h3 {
+    margin: 0;
+    text-align: left;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #c40000;
+}
+
+.checkout-btn {
+    display: block;
+    width: 260px;
+    margin: 30px auto;
+    margin-left: auto;
+    padding: 15px;
+    background: #c40000;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.checkout-btn:hover {
+    background: #a00000;
+}
+/* ===== Top right cart button ===== */
+.top-bar {
+    display: flex;
+    justify-content: center;
+    padding: 15px 30px;
+}
+
+.cart-btn {
+    background-color: #c40000;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.cart-btn:hover {
+    background-color: #a30000;
+}
+.cart-actions {
+    margin-top: 10px;
+}
+
+.cart-actions .price {
+    margin-bottom: 8px;
+}
+
+.remove-btn {
+    display: inline-block;
+    margin-top: 10px;
+    background: #c40000;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    width: fit-content;
+}
+
+
+.remove-btn:hover {
+    background: #a30000;
+}
+/* ===== HOME PAGE ===== */
+
+.home-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f0f0f;   /* matte black */
+}
+
+
+.home-card {
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 40px;
+    width: 360px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.home-card h1 {
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.home-card p {
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.home-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.home-btn {
+    padding: 12px 20px;
+    background: #c40000;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.home-btn:hover {
+    background: #a30000;
+}
+
+.home-btn.outline {
+    background: white;
+    color: #c40000;
+    border: 2px solid #c40000;
+}
+
+.home-btn.outline:hover {
+    background: #c40000;
+    color: white;
+}
+/* ===== AUTH (SIGN IN / SIGN UP) ===== */
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f0f0f;   /* matte black */
+}
+
+
+.auth-card {
+    width: 360px;
+    padding: 20px;
+    background: #1a1a1a;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    color: #fff;
+}
+
+.auth-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.auth-card label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.auth-card input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.auth-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #c40000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.auth-btn:hover {
+    background: #a30000;
+}
+.cart-info {
+    flex: 1;
+    text-align: left;
+    margin-left: 20px;
+}
+.qty-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.qty-box a {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 6px;
+}
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 40px auto 20px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px; 
+    
+}
+.cart-summary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.total-label {
+    color: #000;
+}
+
+.total-amount {
+    color: #c40000;
+}
+/* ===== Center page ===== */
+.page-center {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== Auth Card ===== */
+.auth-card {
+    width: 360px;
+    padding: 30px;
+    text-align: center;
+}
+
+/* ===== Error Card ===== */
+.error-card h3 {
+    color: #c40000;
+}
+
+.error-card p {
+    margin: 15px 0;
+    font-size: 16px;
+}
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* centers cards */
+    gap: 25px;
+}
+
+
+/* for back button */
+.back-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: #c40000;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.back-btn:hover {
+    background: #a00000;
+}
+
+
+.dark-card {
+    background: #1a1a1a;
+    color: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.cart-info h3 {
+    text-align: left;
+    margin-bottom: 6px;
+}
+
+.error-card {
+    max-width: 420px;
+    margin: 120px auto;
+    text-align: center;
+}
+
+
+/* ===== GLASS EFFECT FOR ALL CARDS ===== */
+.card,
+.item-card,
+.cart-card,
+.auth-card,
+.error-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
+  color: var(--glass-text);
+}
+/* ===== GLASS TEXT STYLE ===== */
+body,
+h1, h2, h3, h4, h5, h6,
+p, span, label {
+  color: var(--glass-text);
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  letter-spacing: 0.4px;
+}
+/* ===== GLASS INPUTS ===== */
+input,
+textarea {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+/* ===== GLASS BUTTON EFFECT ===== */
+.card-btn,
+.checkout-btn,
+.remove-btn,
+.back-btn {
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+/* ===== GLASS BUTTON EFFECT ===== */
+.card-btn,
+.checkout-btn,
+.remove-btn,
+.back-btn {
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ===== CHECKOUT GLASS CARD ===== */
+
+.checkout-card {
+    width: 420px;
+    background: rgba(20,20,20,0.85);
+    backdrop-filter: blur(14px);
+    border-radius: 18px;
+    padding: 28px;
+    color: white;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.9);
+}
+
+.checkout-card h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.muted {
+    text-align: center;
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+.order-summary {
+    margin-bottom: 20px;
+}
+
+.checkout-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 15px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+
+.checkout-total {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.error-text {
+    color: red;
+    text-align: center;
+}
+
+.full-btn {
+    width: 100%;
+}
+html, body {
+    background-color: #0f0f0f;
+}
+/* ===== GLOBAL DARK THEME ===== */
+.dark-bg {
+    background: #0d0d0d;
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+/* ===== CENTER PAGE ===== */
+.page-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: rgba(25, 25, 25, 0.95);
+    border-radius: 14px;
+    padding: 30px;
+    width: 380px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+/* ===== TEXT ===== */
+.muted {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+/* ===== ORDER ITEMS ===== */
+.checkout-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.checkout-total {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* ===== BUTTONS ===== */
+.card-btn {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.full-btn {
+    width: 100%;
+}
+
+.red-btn {
+    background: #c70000;
+}
+
+.red-btn:hover {
+    background: #a50000;
+}
+
+
+
+

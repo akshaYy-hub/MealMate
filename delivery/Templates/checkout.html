@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+</head>
+<body>
+    <button class="back-btn" onclick="history.back()">Go Back</button>
+
+<div class="page-center">
+    <div class="card checkout-card">
+
+        <h2>Checkout</h2>
+        <p class="muted">Welcome, {{ username }}</p>
+
+        {% if error %}
+            <p class="error-text">{{ error }}</p>
+        {% else %}
+
+       <div class="order-summary">
+    {% for ci in cart_items %}
+        <div class="checkout-item">
+            <span>{{ ci.item.name }} × {{ ci.quantity }}</span>
+            <span>₹ {{ ci.subtotal }}</span>
+        </div>
+    {% endfor %}
+
+    <div class="checkout-total">
+        Total: ₹ {{ total_price }}
+    </div>
+</div>
+
+<button id="rzp-button" class="card-btn full-btn">
+    Pay Now
+</button>
+<form id="payment-success-form" method="post" action="{% url 'place_order' username %}">
+    {% csrf_token %}
+    <input type="hidden" name="razorpay_payment_id" id="razorpay_payment_id">
+</form>
+
+
+
+
+      
+
+        {% endif %}
+
+    </div>
+</div>
+
+<script>
+var options = {
+    "key": "{{ razorpay_key_id }}",
+    "amount": "{{ amount|floatformat:0 }}00",
+    "currency": "INR",
+    "name": "Meal Mate",
+    "description": "Food Order Payment",
+    "order_id": "{{ order_id }}",
+
+"handler": function (response) {
+    document.getElementById("razorpay_payment_id").value =
+        response.razorpay_payment_id;
+    document.getElementById("payment-success-form").submit();
+},
+
+
+
+    "prefill": {
+        "name": "{{ username }}",
+        "email": "test@example.com",
+        "contact": "9999999999"
+    },
+
+    "theme": {
+        "color": "#e50914"
+    }
+};
+
+var rzp1 = new Razorpay(options);
+
+document.getElementById("rzp-button").onclick = function(e) {
+    e.preventDefault();
+    rzp1.open();
+};
+</script>
+
+
+
+<form id="payment-success-form" method="post" action="{% url 'place_order' username %}">
+    {% csrf_token %}
+    <input type="hidden" name="razorpay_payment_id" id="razorpay_payment_id">
+</form>
+
+    
+</body>
+</html>

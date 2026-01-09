@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+<body>
+    <button class="back-btn" onclick="history.back()">Go Back</button>
+
+    <h3>Welcome {{username}}!</h3>
+
+   <div class="top-bar">
+    <a href="{% url 'show_cart' username %}" class="cart-btn">Go to Cart</a>
+</div>
+
+
+    <!-- show current menu -->
+   <h3>Menu Items</h3>
+
+<div class="item-container">
+    {% for item in itemList %}
+    <div class="item-card card">
+        <img 
+    src="{{ item.picture }}"
+    width="180"
+    height="140"
+    style="object-fit: cover; border-radius:10px;"
+>
+
+
+        <h4>{{ item.name }}</h4>
+        <p>{{ item.description }}</p>
+        <p><b>₹ {{ item.price }}</b></p>
+        <p>Veg: {{ item.vegetarian }}</p>
+
+        <a class="card-btn" href="{% url 'add_to_cart' item.id username %}">
+            Add to Cart
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
