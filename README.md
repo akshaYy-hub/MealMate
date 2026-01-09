@@ -94,6 +94,11 @@ Improved UI/UX
 
 Role-based access (Admin / User)
 
+Note:
+Restaurants and menu items can be added via Django Admin Panel.
+Sample data is not included in the repository.
+
+
 👨‍💻 Author
 
 Akshay
